@@ -13,12 +13,13 @@ $ make -f eks.mak start
 ~~~
 
 ## Provision the cluster
-creating namespace and set it as the defualt.
+Creating namespace and set it as the defualt.
 ~~~
 $ kubectl create ns c756ns
 $ kubectl config set-context --current --namespace=c756ns
 ~~~
-provision the Kubernetes
+Provision the Kubernetes
 ~~~
 $ make -f k8s.mak provision
 ~~~
+

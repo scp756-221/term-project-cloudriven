@@ -4,6 +4,15 @@ Term Project repo
 
 ## Execution environemt comments
 This repository is desinged and develop to run on the EKS (Elastic Kubernetes Service) of AWS.
+---
+
+## The current architecture of our microservices
+
+![alt text](https://user-images.githubusercontent.com/49853545/158937056-91624797-aeea-400e-9828-b153075b58af.jpg)
+
+
+
+
 
 ---
 ## Creating the cluster
@@ -12,14 +21,13 @@ This repository is desinged and develop to run on the EKS (Elastic Kubernetes Se
 $ make -f eks.mak start
 ~~~
 
-## Provision the cluster
+## Provisioning the cluster
 Creating namespace and set it as the defualt.
 ~~~
 $ kubectl create ns c756ns
 $ kubectl config set-context --current --namespace=c756ns
 ~~~
-Provision the Kubernetes
+Provisioning the Kubernetes
 ~~~
 $ make -f k8s.mak provision
 ~~~
-

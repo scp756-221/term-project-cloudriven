@@ -27,6 +27,14 @@ The script will then generate makefiles personalized to the data that you entere
 
 :loudspeaker: **Note:** This is the only time you will call `k8s-tpl.mak` directly. This creates all the non-templated files, such as `k8s.mak`. You will use the non-templated makefiles in all the remaining steps.
 
+
+## Creating the cluster
+~~~
+make -f eks.mak start
+~~~
+
+
+
 ## Provisioning the cluster
 Creating namespace and set it as the defualt.
 ~~~

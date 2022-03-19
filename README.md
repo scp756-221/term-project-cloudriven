@@ -9,7 +9,7 @@ This repository is desinged and develop to run on the EKS (Elastic Kubernetes Se
 --- -->
 
 ## The current architecture of our microservices
-![microserviced-based app diagram](https://user-images.githubusercontent.com/44685975/159100976-58ad94b6-f92f-4edc-8f89-94e8ed7906f4.png)
+![microserviced-based app diagram](https://user-images.githubusercontent.com/44685975/159101267-cfe1dabf-2752-41cd-a1b4-b075f8656edb.jpg)
 
 ---
 ## 1. Instantiate the template files

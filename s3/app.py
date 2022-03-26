@@ -56,11 +56,15 @@ def readiness():
 
 # Modify & Add more functions here
 @bp.route('/', methods=['GET'])
-@metrics.do_not_track()
-def hello_world():
-    return ("If you are reading this in a browser, your service is "
-            "operational. Switch to curl/Postman/etc to interact using the "
-            "other HTTP verbs.")
+def list_all_playlists():
+    headers = request.headers
+    # check header here
+    if 'Authorization' not in headers:
+        return Response(json.dumps({"error": "missing auth"}),
+                        status=401,
+                        mimetype='application/json')
+    # list all playlists here
+    return {}
 
 
 @bp.route('/<playlist_id>', methods=['GET'])

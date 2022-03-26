@@ -41,6 +41,7 @@ db = {
     ]
 }
 
+
 @bp.route('/health')
 @metrics.do_not_track()
 def health():
@@ -53,7 +54,7 @@ def readiness():
     return Response("", status=200, mimetype="application/json")
 
 
-### Modify & Add more functions here
+# Modify & Add more functions here
 @bp.route('/', methods=['GET'])
 @metrics.do_not_track()
 def hello_world():
@@ -61,6 +62,22 @@ def hello_world():
             "operational. Switch to curl/Postman/etc to interact using the "
             "other HTTP verbs.")
 
+
+@bp.route('/<playlist_id>', methods=['GET'])
+def get_playlist(playlist_id):
+    headers = request.headers
+    # check header here
+    if 'Authorization' not in headers:
+        return Response(json.dumps({"error": "missing auth"}),
+                        status=401,
+                        mimetype='application/json')
+    payload = {"objtype": "playlist", "objkey": playlist_id}
+    url = db['name'] + '/' + db['endpoint'][0]
+    response = requests.get(
+        url,
+        params=payload,
+        headers={'Authorization': headers['Authorization']})
+    return (response.json())
 
 
 # All database calls will have this prefix.  Prometheus metric

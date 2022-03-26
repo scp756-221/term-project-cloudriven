@@ -84,6 +84,28 @@ def get_playlist(playlist_id):
     return (response.json())
 
 
+@bp.route('/', methods=['POST'])
+def create_playlist():
+    headers = request.headers
+    # check header here
+    if 'Authorization' not in headers:
+        return Response(json.dumps({"error": "missing auth"}),
+                        status=401,
+                        mimetype='application/json')
+    try:
+        content = request.get_json()
+        PlaylistName = content['PlaylistName']
+        Songs = content['Songs']
+    except Exception:
+        return json.dumps({"message": "error reading arguments"})
+    url = db['name'] + '/' + db['endpoint'][1]
+    response = requests.post(
+        url,
+        json={"objtype": "playlist", "PlaylistName": PlaylistName, "Songs": Songs},
+        headers={'Authorization': headers['Authorization']})
+    return (response.json())
+
+
 # All database calls will have this prefix.  Prometheus metric
 # calls will not---they will have route '/metrics'.  This is
 # the conventional organization.

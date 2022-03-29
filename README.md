@@ -64,3 +64,22 @@ Example of creating a workload for music service:
 make -f workload.mak music number_user=5
 ~~~
 The workload defines by the number_user.
+
+## Common URLs that are required 
+#### retrieve the URL for Grafana
+~~~
+$ make -f k8s.mak grafana-url
+~~~
+User: admin
+Password: prom-operator
+
+#### retrieve the URL for Prometheus
+~~~
+$ make -f k8s.mak prometheus-url
+~~~
+
+#### retrieve the URL for Kiali
+~~~
+$ make -f k8s.mak kiali-url
+~~~
+

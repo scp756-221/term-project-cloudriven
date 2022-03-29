@@ -27,15 +27,18 @@ The script will then generate makefiles personalized to the data that you entere
 
 :loudspeaker: **Note:** This is the only time you will call `k8s-tpl.mak` directly. This creates all the non-templated files, such as `k8s.mak`. You will use the non-templated makefiles in all the remaining steps.
 
+## Prepaing the cluster environement
+~~~
+make init.mak
+~~~
+Includes following commands:
 
-## Creating the cluster
+#### Creating the cluster
 ~~~
 make -f eks.mak start
 ~~~
 
-
-
-## Provisioning the cluster
+#### Provisioning the cluster
 Creating namespace and set it as the defualt.
 ~~~
 $ kubectl create ns c756ns
@@ -44,4 +47,8 @@ $ kubectl config set-context --current --namespace=c756ns
 Provisioning the Kubernetes
 ~~~
 $ make -f k8s.mak provision
+~~~
+start kiali
+~~~
+make -f k8s.mak kiali
 ~~~

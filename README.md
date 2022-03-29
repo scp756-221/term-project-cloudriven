@@ -65,7 +65,7 @@ make -f workload.mak music number_user=5
 ~~~
 The workload defines by the number_user.
 
-## Common URLs that are required 
+## Common URLs 
 #### retrieve the URL for Grafana
 ~~~
 $ make -f k8s.mak grafana-url

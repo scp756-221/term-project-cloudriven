@@ -48,7 +48,19 @@ Provisioning the Kubernetes
 ~~~
 $ make -f k8s.mak provision
 ~~~
-start kiali
+starting kiali
 ~~~
 make -f k8s.mak kiali
 ~~~
+
+## Gatling workload tests
+The workload.mak is built to create automation for analysing the workload for user and music services. 
+Example of creating a workload for user service:
+~~~
+$ make -f workload.mak user number_user=5
+~~~
+Example of creating a workload for music service:
+~~~
+make -f workload.mak music number_user=5
+~~~
+The workload defines by the number_user.

@@ -162,17 +162,17 @@ class ReadTablesSim extends Simulation {
     .authorizationHeader("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZGJmYmMxYzAtMDc4My00ZWQ3LTlkNzgtMDhhYTRhMGNkYTAyIiwidGltZSI6MTYwNzM2NTU0NC42NzIwNTIxfQ.zL4i58j62q8mGUo5a0SQ7MHfukBUel8yl8jGT5XmBPo")
     .acceptLanguageHeader("en-US,en;q=0.5")
 }
-
+/*
 // Added as an addiontal load test scenario (Update Table Simulation) for s1
 class UpdateTablesSimS1 extends Simulation {
   val httpProtocol = http
     .baseUrl("http://" + Utility.envVar("CLUSTER_IP", "127.0.0.1") + "/")
     .postData("""{"email":"cmpt756@sfu.ca","fname":"cloudriven","lname":"CMPT"}""")
-    .acceptHeader("application/json,text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+    .acceptHeader("application/json,text/html,application/xhtml+xml,application/xml;q=0.9,**;q=0.8")
     .authorizationHeader("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZGJmYmMxYzAtMDc4My00ZWQ3LTlkNzgtMDhhYTRhMGNkYTAyIiwidGltZSI6MTYwNzM2NTU0NC42NzIwNTIxfQ.zL4i58j62q8mGUo5a0SQ7MHfukBUel8yl8jGT5XmBPo")
     .acceptLanguageHeader("en-US,en;q=0.5")
 }
-
+/**
 // Added as an addiontal load test scenario (Update Table Simulation) for s2
 class UpdateTablesSimS2 extends Simulation {
   val httpProtocol = http
@@ -182,7 +182,7 @@ class UpdateTablesSimS2 extends Simulation {
     .authorizationHeader("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZGJmYmMxYzAtMDc4My00ZWQ3LTlkNzgtMDhhYTRhMGNkYTAyIiwidGltZSI6MTYwNzM2NTU0NC42NzIwNTIxfQ.zL4i58j62q8mGUo5a0SQ7MHfukBUel8yl8jGT5XmBPo")
     .acceptLanguageHeader("en-US,en;q=0.5")
 }
-
+**/
 class ReadUserSim extends ReadTablesSim {
   val scnReadUser = scenario("ReadUser")
       .exec(RUser.ruser)
@@ -200,7 +200,7 @@ class ReadMusicSim extends ReadTablesSim {
     scnReadMusic.inject(atOnceUsers(Utility.envVarToInt("USERS", 1)))
   ).protocols(httpProtocol)
 }
-
+/*
 // A new simulation that continuously calls update_user() with a specific interval. (HTTP PUT requests)
 class UpdateUserSim extends UpdateTablesSimS1 {
   val scnUpdateUser = scenario("UpdateUser")
@@ -231,7 +231,7 @@ class ReadPlaylistSim extends ReadTablesSim {
     scnReadPlaylist.inject(atOnceUsers(Utility.envVarToInt("USERS", 1)))
   ).protocols(httpProtocol)
 }
-
+*/
 
 
 /*

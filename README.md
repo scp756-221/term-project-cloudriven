@@ -27,7 +27,7 @@ The script will then generate makefiles personalized to the data that you entere
 
 :loudspeaker: **Note:** This is the only time you will call `k8s-tpl.mak` directly. This creates all the non-templated files, such as `k8s.mak`. You will use the non-templated makefiles in all the remaining steps.
 
-## Prepaing the cluster environement
+## Preparing the cluster environment
 ~~~
 make init.mak
 ~~~
@@ -53,13 +53,13 @@ starting kiali
 $ make -f k8s.mak kiali
 ~~~
 
-## Deleteing the cluster environment from AWS
+## Deleting the cluster environment from AWS
 ~~~
 $ make -f init.mak stop
 ~~~
 
 ## Gatling workload tests
-The workload.mak is built to create automation for analysing the workload for user and music services. 
+The workload.mak is built to create automation for analyzing the workload for the user and music services.  
 Example of creating a workload for user service:
 ~~~
 $ make -f workload.mak user number_user=5

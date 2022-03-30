@@ -50,7 +50,12 @@ $ make -f k8s.mak provision
 ~~~
 starting kiali
 ~~~
-make -f k8s.mak kiali
+$ make -f k8s.mak kiali
+~~~
+
+## Deleteing the cluster environment from AWS
+~~~
+$ make -f init.mak stop
 ~~~
 
 ## Gatling workload tests
@@ -65,6 +70,10 @@ make -f workload.mak music number_user=5
 ~~~
 The workload defines by the number_user.
 
+The command to kill all the gatling workload
+~~~
+make -f workload.mak stop
+~~~
 ## Common URLs 
 #### retrieve the URL for Grafana
 ~~~

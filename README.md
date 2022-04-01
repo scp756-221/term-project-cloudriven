@@ -102,5 +102,5 @@ $ make -f scale nodes nodes=3 --nodes-min=2 --nodes-max=4
 
 Example of setting the number of replicas for the db microservice from 1 to 3:
 ~~~
-$ make -f scale.mak db c_r_s2=1 r_s2=3
+$ make -f scale.mak db c_r=1 r=3
 ~~~

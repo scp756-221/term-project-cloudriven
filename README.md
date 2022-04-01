@@ -92,7 +92,7 @@ $ make -f k8s.mak prometheus-url
 $ make -f k8s.mak kiali-url
 ~~~
 
-## Manual scaling automation 
+## Manual scaling  
 
 #### change the number of nodes in the cluster
 Example of changing the number of nodes to 3, the minimum number of nodes to 2, and the maximum number of nodes to 4:

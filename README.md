@@ -97,7 +97,7 @@ $ make -f k8s.mak kiali-url
 #### change the number of nodes in the cluster
 Example of changing the number of nodes to 3, the minimum number of nodes to 2, and the maximum number of nodes to 4:
 ~~~
-$ make -f scale nodes nodes=3 --nodes-min=2 --nodes-max=4
+$ make -f scale.mak nodes nodes=3 nodes-min=2 nodes-max=4
 ~~~
 
 Example of setting the number of replicas for the db microservice from 1 to 3:

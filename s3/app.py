@@ -122,6 +122,96 @@ def delete_playlist(playlist_id):
     return (response.json())
 
 
+@bp.route('/<playlist_id>', methods=['PUT'])
+def edit_playlist_name(playlist_id):
+    headers = request.headers
+    # check header here
+    if 'Authorization' not in headers:
+        return Response(json.dumps({"error": "missing auth"}),
+                        status=401,
+                        mimetype='application/json')
+    try:
+        content = request.get_json()
+        PlaylistName = content['PlaylistName']
+    except Exception:
+        return json.dumps({"message": "error reading arguments"})
+    payload = {"objtype": "playlist", "objkey": playlist_id}
+    url = db['name'] + '/' + db['endpoint'][3]
+    response = requests.put(
+        url,
+        params=payload,
+        json={"objtype": "playlist", "PlaylistName": PlaylistName},
+        headers={'Authorization': headers['Authorization']})
+    return (response.json())
+
+
+@bp.route('/add_song/<playlist_id>', methods=['PUT'])
+def add_song(playlist_id):
+    headers = request.headers
+    # check header here
+    if 'Authorization' not in headers:
+        return Response(json.dumps({"error": "missing auth"}),
+                        status=401,
+                        mimetype='application/json')
+    payload = {"objtype": "playlist", "objkey": playlist_id}
+
+    url = db['name'] + '/' + db['endpoint'][0]
+    response = requests.get(
+        url,
+        params=payload,
+        headers={'Authorization': headers['Authorization']})
+    songs = response.json()['Items'][0]['Songs']
+
+    try:
+        content = request.get_json()
+        song = content['music_id']
+    except Exception:
+        return json.dumps({"message": f"no music id for song {song}"})
+
+    if song in songs:
+        return json.dumps({"message": f"song {song} already exists in the playlist"})
+
+    songs.append(song)
+    url = db['name'] + '/' + db['endpoint'][3]
+    response = requests.put(
+        url,
+        params={"objtype": "playlist", "objkey": playlist_id},
+        json={"Songs": songs},
+        headers={'Authorization': headers['Authorization']})
+    return (response.json())
+
+
+@bp.route('/delete_song/<playlist_id>', methods=['PUT'])
+def delete_song(playlist_id):
+    headers = request.headers
+    # check header here
+    if 'Authorization' not in headers:
+        return Response(json.dumps({"error": "missing auth"}),
+                        status=401,
+                        mimetype='application/json')
+    try:
+        content = request.get_json()
+        music_id = content['music_id']
+    except Exception:
+        return json.dumps({"message": "error reading arguments"})
+
+    songs = get_playlist(playlist_id)['Items'][0]['Songs']
+
+    try:
+        songs = songs.remove(music_id)
+    except Exception:
+        return json.dumps({"message": "music_id doesn't exist in the playlist"})
+
+    payload = {"objtype": "playlist", "objkey": playlist_id}
+    url = db['name'] + '/' + db['endpoint'][3]
+    response = requests.put(
+        url,
+        params=payload,
+        json={"Songs": songs},
+        headers={'Authorization': headers['Authorization']})
+    return (response.json())
+
+
 # All database calls will have this prefix.  Prometheus metric
 # calls will not---they will have route '/metrics'.  This is
 # the conventional organization.

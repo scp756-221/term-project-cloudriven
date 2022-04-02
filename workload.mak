@@ -1,3 +1,13 @@
+help:
+	@echo ""
+	@echo "Creating a workload:"
+	@echo "	user     => Example: make -f workload.mak user number_user=5"
+	@echo "	music    => Example: make -f workload.mak music number_user=5"
+	@echo ""
+	@echo "deleting all workloads:"	
+	@echo "	user     => Example: make -f workload.mak stop"
+
+
 check-number_user:
 	@if test "$(number_user)" = "" ; then \
 		echo "number_user not set"; \

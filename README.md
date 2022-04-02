@@ -104,3 +104,7 @@ Example of setting the number of replicas for the db microservice from 1 to 3:
 ~~~
 $ make -f scale.mak db c_r=1 r=3
 ~~~
+please use the help command to get more information about other functions:
+~~~
+$ make -f scale.mak help
+~~~

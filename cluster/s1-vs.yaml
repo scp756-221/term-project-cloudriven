@@ -1,4 +1,4 @@
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1alpha3 #/v1beta1 
 kind: VirtualService
 metadata:
   name: cmpt756s1
@@ -16,8 +16,18 @@ spec:
         prefix: /api/v1/user
     rewrite:
       uri: /api/v1/user
+    fault:
+      abort:
+        percentage:
+          value: 0.0
+        httpStatus: 500
+    retries:
+      attempts: 3
+      perTryTimeout: 2s
     route:
     - destination:
         host: cmpt756s1
         port:
           number: 30000
+    
+

@@ -42,9 +42,10 @@ The command above includes the following:
 ~~~
 /home/k8s# make -f eks.mak start
 ~~~
+:loudspeaker: **Note:** In order for the EKS cluster to pull container images from ghcr, You must have your github access token registered in "c756-exer/cluster/ghcr.io-token.txt".
 
 #### Provisioning the cluster
-Creating namespace and set it as the defualt.
+Create namespace and set it as the default.
 ~~~
 /home/k8s# kubectl create ns c756ns
 /home/k8s# kubectl config set-context --current --namespace=c756ns
@@ -78,17 +79,21 @@ make -f eks.mak status
 
 ## Gatling workload tests
 The workload.mak is built to create automation for analyzing the workload for the user and music services.  
-Example of creating a workload for user service:
+Example of creating a workload for user (s1) service:
 ~~~
 make -f workload.mak user number_user=5
 ~~~
-Example of creating a workload for music service:
+Example of creating a workload for music (s2) service:
+~~~
+make -f workload.mak music number_user=5
+~~~
+Example of creating a workload for Playlist (s3) service:
 ~~~
 make -f workload.mak music number_user=5
 ~~~
 The workload defines by the number_user.
 
-The command to kill all the gatling workload
+The command to kill all the Gatling workload
 ~~~
 make -f workload.mak stop
 ~~~
@@ -110,3 +115,21 @@ $ make -f k8s.mak prometheus-url
 ~~~
 $ make -f k8s.mak kiali-url
 ~~~
+
+## Manual scaling  
+
+#### change the number of nodes in the cluster
+Example of changing the number of nodes to 3, the minimum number of nodes to 2, and the maximum number of nodes to 4:
+~~~
+$ make -f scale.mak nodes nodes=3 nodes-min=2 nodes-max=4
+~~~
+
+Example of setting the number of replicas for the db microservice from 1 to 3:
+~~~
+$ make -f scale.mak db c_r=1 r=3
+~~~
+please use the help command to get more information about other functions:
+~~~
+$ make -f scale.mak help
+~~~
+

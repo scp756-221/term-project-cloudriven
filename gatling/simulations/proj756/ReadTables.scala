@@ -221,6 +221,7 @@ class WriteMusicSim extends UpdateTablesSimS2 {
     scnWriteMusic.inject(atOnceUsers(Utility.envVarToInt("USERS", 1)))
   ).protocols(httpProtocol)
 }
+*/
 
 // a new simulation that constantly calls get_playlist() with a specific interval. (HTTP GET requests)
 class ReadPlaylistSim extends ReadTablesSim {
@@ -231,7 +232,6 @@ class ReadPlaylistSim extends ReadTablesSim {
     scnReadPlaylist.inject(atOnceUsers(Utility.envVarToInt("USERS", 1)))
   ).protocols(httpProtocol)
 }
-*/
 
 
 /*

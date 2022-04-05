@@ -14,8 +14,18 @@ spec:
         prefix: /api/v1/datastore
     rewrite:
       uri: /api/v1/datastore
+    fault:
+      abort:
+        percentage:
+          value: 100.0
+        httpStatus: 500
     route:
     - destination:
         host: cmpt756db
         port:
           number: 30002
+    fault:
+       delay:
+        fixedDelay: 5000ms
+        percentage:
+          value: 0

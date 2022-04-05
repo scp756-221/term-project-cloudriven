@@ -3,6 +3,7 @@ help:
 	@echo "Creating a workload:"
 	@echo "	user     => Example: make -f workload.mak user number_user=5"
 	@echo "	music    => Example: make -f workload.mak music number_user=5"
+	@echo " playlist => Example: make -f workload.mak playlist number_user=5"
 	@echo ""
 	@echo "deleting all workloads:"	
 	@echo "	user     => Example: make -f workload.mak stop"

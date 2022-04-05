@@ -1,3 +1,4 @@
+.DEFAULT_GOAL := init
 
 init:
 	# Creating the cluster
@@ -14,4 +15,5 @@ init:
 	# Executing Kiali
 	make -f k8s.mak kiali
 
-
+stop:
+	make -f eks.mak stop

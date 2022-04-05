@@ -71,7 +71,7 @@ make -f workload.mak music number_user=5
 ~~~
 Example of creating a workload for Playlist (s3) service:
 ~~~
-make -f workload.mak music number_user=5
+make -f workload.mak playlist number_user=5
 ~~~
 The workload defines by the number_user.
 

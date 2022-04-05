@@ -37,6 +37,7 @@ Includes following commands:
 ~~~
 make -f eks.mak start
 ~~~
+**Note:** In order for the EKS cluster to pull container images from ghcr, You must have your github access token registered in "c756-exer/cluster/ghcr.io-token.txt".
 
 #### Provisioning the cluster
 Create namespace and set it as the default.
@@ -60,11 +61,15 @@ $ make -f init.mak stop
 
 ## Gatling workload tests
 The workload.mak is built to create automation for analyzing the workload for the user and music services.  
-Example of creating a workload for user service:
+Example of creating a workload for user (s1) service:
 ~~~
 $ make -f workload.mak user number_user=5
 ~~~
-Example of creating a workload for music service:
+Example of creating a workload for music (s2) service:
+~~~
+make -f workload.mak music number_user=5
+~~~
+Example of creating a workload for Playlist (s3) service:
 ~~~
 make -f workload.mak music number_user=5
 ~~~

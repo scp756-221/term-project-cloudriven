@@ -19,5 +19,8 @@ user:check-number_user
 music:check-number_user
 	@./gatling-n-music.sh $(number_user)
 
+playlist:check-number_user
+	@./gatling-n-playlist.sh $(number_user)
+
 stop:
 	@./tools/kill-gatling.sh

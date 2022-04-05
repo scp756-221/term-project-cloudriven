@@ -3,15 +3,11 @@
 
 This is the repo for CMPT 756 (Spring 2022) term project.
 
-<!-- 
-## Execution environemt comments
-This repository is desinged and develop to run on the EKS (Elastic Kubernetes Service) of AWS.
---- -->
-
 ## The current architecture of our microservices
 ![microserviced-based app diagram](https://user-images.githubusercontent.com/44685975/159101267-cfe1dabf-2752-41cd-a1b4-b075f8656edb.jpg)
 
 ---
+
 ## Instantiate the template files
 
 Fill in the required values in the template variable file. These include things like your AWS keys, your GitHub signon, and other identifying information. See the comments in that file for details. Note that you will need to have installed Gatling (https://gatling.io/open-source/start-testing/) first, because you will be entering its path in `tpl-vars.txt`.
@@ -50,7 +46,6 @@ The command above includes the following:
 ~~~
 /home/k8s# make -f eks.mak start
 ~~~
-
 #### Provisioning the cluster
 Creating namespace and set it as the defualt.
 ~~~
@@ -72,7 +67,6 @@ The following command will delete the EKS cluster
 ~~~
 /home/k8s# make -f init.mak stop
 ~~~
-
 #### Some other useful commands are:
 Listing all EKS clusters and their node groups:
 ~~~
@@ -99,6 +93,7 @@ The command to kill all the gatling workload
 ~~~
 make -f workload.mak stop
 ~~~
+
 ## Common URLs 
 #### retrieve the URL for Grafana
 ~~~
@@ -106,14 +101,11 @@ $ make -f k8s.mak grafana-url
 ~~~
 User: admin
 Password: prom-operator
-
 #### retrieve the URL for Prometheus
 ~~~
 $ make -f k8s.mak prometheus-url
 ~~~
-
 #### retrieve the URL for Kiali
 ~~~
 $ make -f k8s.mak kiali-url
 ~~~
-

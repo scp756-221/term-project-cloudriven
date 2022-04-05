@@ -31,7 +31,7 @@ $ aws dynamodb list-tables
 
 ## Prepare the cluster environment
 
-To start the container, first run `tools/shell.sh` and then instantiate makefile for setup of an a AWS EKS cluster
+To start the container, first run `tools/shell.sh` and then instantiate makefile for setup of an AWS EKS cluster
 ~~~
 /home/k8s# make init.mak
 ~~~

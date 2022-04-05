@@ -37,7 +37,7 @@ Includes following commands:
 ~~~
 make -f eks.mak start
 ~~~
-**Note:** In order for the EKS cluster to pull container images from ghcr, You must have your github access token registered in "c756-exer/cluster/ghcr.io-token.txt".
+:loudspeaker: **Note:** In order for the EKS cluster to pull container images from ghcr, You must have your github access token registered in "c756-exer/cluster/ghcr.io-token.txt".
 
 #### Provisioning the cluster
 Create namespace and set it as the default.

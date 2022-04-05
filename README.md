@@ -8,6 +8,7 @@ This is the repo for CMPT 756 (Spring 2022) term project.
 
 ---
 
+
 ## Instantiate the template files
 
 Fill in the required values in the template variable file. These include things like your AWS keys, your GitHub signon, and other identifying information. See the comments in that file for details. Note that you will need to have installed Gatling (https://gatling.io/open-source/start-testing/) first, because you will be entering its path in `tpl-vars.txt`.
@@ -19,12 +20,6 @@ $ make -f k8s-tpl.mak templates
 
 :loudspeaker: **Note:**  The script will then generate makefiles personalized to the data that you entered in `clusters/tpl-vars.txt`.
 
-## Ensure AWS DynamoDB is accessible/running
-
-Check that you have the necessary tables installed by running
-~~~
-$ aws dynamodb list-tables
-~~~
 
 ## Ensure AWS DynamoDB is accessible/running
 
@@ -32,6 +27,7 @@ Check that you have the necessary tables installed by running
 ~~~
 $ aws dynamodb list-tables
 ~~~
+
 
 ## Prepare the cluster environment
 
@@ -46,6 +42,7 @@ The command above includes the following:
 ~~~
 /home/k8s# make -f eks.mak start
 ~~~
+
 #### Provisioning the cluster
 Creating namespace and set it as the defualt.
 ~~~
@@ -67,6 +64,8 @@ The following command will delete the EKS cluster
 ~~~
 /home/k8s# make -f init.mak stop
 ~~~
+
+
 #### Some other useful commands are:
 Listing all EKS clusters and their node groups:
 ~~~
@@ -101,10 +100,12 @@ $ make -f k8s.mak grafana-url
 ~~~
 User: admin
 Password: prom-operator
+
 #### retrieve the URL for Prometheus
 ~~~
 $ make -f k8s.mak prometheus-url
 ~~~
+
 #### retrieve the URL for Kiali
 ~~~
 $ make -f k8s.mak kiali-url

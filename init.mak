@@ -24,7 +24,7 @@ monitor:
 	# Executing Kiali
 	make -f k8s.mak kiali
 
-moitoring-tools-url:
+monitoring-tools-url:
 	make -f k8s.mak grafana-url
 	echo "User: admin Password: prom-operator"
 	make -f k8s.mak kiali-url

@@ -9,6 +9,9 @@ init:
 	kubectl create ns c756ns
 	kubectl config set-context --current --namespace=c756ns
 
+	# Setting context to latest EKS cluster
+	make -f eks.mak cd
+
 	# Provisioning the Kubernetes
 	make -f k8s.mak provision
 
@@ -28,4 +31,7 @@ url:
 	kubectl -n istio-system get service istio-ingressgateway | cut -c -140
 
 stop:
+	# Cleaning up the DB tables
+	make -f k8s.mak dynamodb-clean
+	# Deleting the EKS cluster
 	make -f eks.mak stop

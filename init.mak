@@ -15,5 +15,9 @@ init:
 	# Executing Kiali
 	make -f k8s.mak kiali
 
+url:
+	# Fetch the required external IP address
+	kubectl -n istio-system get service istio-ingressgateway | cut -c -140
+
 stop:
 	make -f eks.mak stop

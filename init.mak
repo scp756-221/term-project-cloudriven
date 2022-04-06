@@ -19,9 +19,15 @@ docker:
 	# Building the docker images after making any updates
 	make -f k8s.mak cri
 
+
 monitor:
 	# Executing Kiali
 	make -f k8s.mak kiali
+
+moitoring-tools-url:
+	make -f k8s.mak grafana-url
+	echo "User: admin Password: prom-operator"
+	make -f k8s.mak kiali-url
 
 url:
 	# Fetching the required external IP address

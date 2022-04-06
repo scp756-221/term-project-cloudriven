@@ -12,12 +12,19 @@ init:
 	# Provisioning the Kubernetes
 	make -f k8s.mak provision
 
+	# Loading the database
+	make -f k8s.mak loader
+
+docker:
+	# Building the docker images after making any updates
+	make -f k8s.mak cri
+
 monitor:
 	# Executing Kiali
 	make -f k8s.mak kiali
 
 url:
-	# Fetch the required external IP address
+	# Fetching the required external IP address
 	kubectl -n istio-system get service istio-ingressgateway | cut -c -140
 
 stop:

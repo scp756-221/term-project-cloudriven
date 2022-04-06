@@ -20,29 +20,32 @@ data:
             "hide": true,
             "iconColor": "rgba(0, 211, 255, 1)",
             "name": "Annotations & Alerts",
+            "target": {
+              "limit": 100,
+              "matchAny": false,
+              "tags": [],
+              "type": "dashboard"
+            },
             "type": "dashboard"
           }
         ]
       },
       "description": "Flask",
       "editable": true,
+      "fiscalYearStartMonth": 0,
       "gnetId": 9688,
       "graphTooltip": 0,
-      "id": 25,
-      "iteration": 1609019827820,
+      "iteration": 1649204671735,
       "links": [],
+      "liveNow": false,
       "panels": [
         {
           "aliasColors": {},
           "bars": true,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "$datasource",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
+          "datasource": {
+            "uid": "$datasource"
           },
           "fill": 1,
           "fillGradient": 0,
@@ -73,7 +76,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.2.1",
+          "pluginVersion": "8.4.2",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -97,9 +100,7 @@ data:
             }
           ],
           "thresholds": [],
-          "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "title": "Total requests per minute [1m]",
           "tooltip": {
             "shared": true,
@@ -108,33 +109,25 @@ data:
           },
           "type": "graph",
           "xaxis": {
-            "buckets": null,
             "mode": "time",
-            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
               "min": "0",
               "show": true
             },
             {
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false,
-            "alignLevel": null
+            "align": false
           }
         },
         {
@@ -142,12 +135,8 @@ data:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "$datasource",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
+          "datasource": {
+            "uid": "$datasource"
           },
           "fill": 1,
           "fillGradient": 0,
@@ -176,7 +165,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.2.1",
+          "pluginVersion": "8.4.2",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -195,9 +184,7 @@ data:
             }
           ],
           "thresholds": [],
-          "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "title": "Memory usage",
           "tooltip": {
             "shared": true,
@@ -206,33 +193,24 @@ data:
           },
           "type": "graph",
           "xaxis": {
-            "buckets": null,
             "mode": "time",
-            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "decbytes",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             },
             {
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false,
-            "alignLevel": null
+            "align": false
           }
         },
         {
@@ -240,12 +218,8 @@ data:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "$datasource",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
+          "datasource": {
+            "uid": "$datasource"
           },
           "fill": 1,
           "fillGradient": 0,
@@ -278,7 +252,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.2.1",
+          "pluginVersion": "8.4.2",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -297,9 +271,7 @@ data:
             }
           ],
           "thresholds": [],
-          "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "title": "Successful requests per second [1m]",
           "tooltip": {
             "shared": true,
@@ -308,33 +280,24 @@ data:
           },
           "type": "graph",
           "xaxis": {
-            "buckets": null,
             "mode": "time",
-            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             },
             {
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false,
-            "alignLevel": null
+            "align": false
           }
         },
         {
@@ -342,12 +305,8 @@ data:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "$datasource",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
+          "datasource": {
+            "uid": "$datasource"
           },
           "fill": 1,
           "fillGradient": 0,
@@ -376,7 +335,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.2.1",
+          "pluginVersion": "8.4.2",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -400,9 +359,7 @@ data:
             }
           ],
           "thresholds": [],
-          "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "title": "Errors per second [1m]",
           "tooltip": {
             "shared": true,
@@ -411,33 +368,24 @@ data:
           },
           "type": "graph",
           "xaxis": {
-            "buckets": null,
             "mode": "time",
-            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             },
             {
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false,
-            "alignLevel": null
+            "align": false
           }
         },
         {
@@ -445,12 +393,8 @@ data:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "$datasource",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
+          "datasource": {
+            "uid": "$datasource"
           },
           "fill": 1,
           "fillGradient": 0,
@@ -479,7 +423,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.2.1",
+          "pluginVersion": "8.4.2",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -498,9 +442,7 @@ data:
             }
           ],
           "thresholds": [],
-          "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "title": "CPU usage",
           "tooltip": {
             "shared": true,
@@ -509,36 +451,26 @@ data:
           },
           "type": "graph",
           "xaxis": {
-            "buckets": null,
             "mode": "time",
-            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "$$hashKey": "object:1064",
-              "decimals": null,
               "format": "percentunit",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             },
             {
               "$$hashKey": "object:1065",
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false,
-            "alignLevel": null
+            "align": false
           }
         },
         {
@@ -546,13 +478,9 @@ data:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "$datasource",
-          "decimals": null,
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
+          "datasource": {
+            "type": "prometheus",
+            "uid": "$datasource"
           },
           "fill": 0,
           "fillGradient": 0,
@@ -585,7 +513,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.2.1",
+          "pluginVersion": "8.4.2",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -595,6 +523,10 @@ data:
           "steppedLine": false,
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
               "expr": "sum(rate(flask_http_request_duration_seconds_sum{status=\"200\",service=\"cmpt756db\"}[1m]))\n/\nsum(rate(flask_http_request_duration_seconds_count{status=\"200\",service=\"cmpt756db\"}[1m]))",
               "format": "time_series",
               "interval": "",
@@ -603,22 +535,41 @@ data:
               "refId": "A"
             },
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
               "expr": "sum(rate(flask_http_request_duration_seconds_sum{status=\"200\",service=\"cmpt756s1\"}[1m]))\n/\nsum(rate(flask_http_request_duration_seconds_count{status=\"200\",service=\"cmpt756s1\"}[1m]))",
               "interval": "",
               "legendFormat": "cmpt756s1",
               "refId": "B"
             },
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "exemplar": true,
               "expr": "sum(rate(flask_http_request_duration_seconds_sum{status=\"200\",service=\"cmpt756s2\"}[1m]))\n/\nsum(rate(flask_http_request_duration_seconds_count{status=\"200\",service=\"cmpt756s2\"}[1m]))",
               "interval": "",
               "legendFormat": "cmpt756s2",
               "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "$datasource"
+              },
+              "exemplar": true,
+              "expr": "sum(rate(flask_http_request_duration_seconds_sum{status=\"200\",service=\"cmpt756s3\"}[1m]))\n/\nsum(rate(flask_http_request_duration_seconds_count{status=\"200\",service=\"cmpt756s3\"}[1m]))",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "cmpt756s3",
+              "refId": "D"
             }
           ],
           "thresholds": [],
-          "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "title": "Average response time [1m]",
           "tooltip": {
             "shared": true,
@@ -627,36 +578,27 @@ data:
           },
           "type": "graph",
           "xaxis": {
-            "buckets": null,
             "mode": "time",
-            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "$$hashKey": "object:1899",
-              "decimals": null,
               "format": "s",
               "label": "",
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             },
             {
               "$$hashKey": "object:1900",
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false,
-            "alignLevel": null
+            "align": false
           }
         },
         {
@@ -664,14 +606,11 @@ data:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "$datasource",
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
+          "datasource": {
+            "type": "prometheus",
+            "uid": "$datasource"
           },
+          "description": "",
           "fill": 0,
           "fillGradient": 0,
           "gridPos": {
@@ -703,7 +642,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.2.1",
+          "pluginVersion": "8.4.2",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -713,6 +652,10 @@ data:
           "steppedLine": false,
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
               "expr": "histogram_quantile(0.5, sum by (le) (rate(flask_http_request_duration_seconds_bucket{service=\"cmpt756db\",status=\"200\"}[1m])))",
               "format": "time_series",
               "interval": "",
@@ -721,22 +664,41 @@ data:
               "refId": "A"
             },
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
               "expr": "histogram_quantile(0.5, sum by (le) (rate(flask_http_request_duration_seconds_bucket{service=\"cmpt756s1\",status=\"200\"}[1m])))",
               "interval": "",
               "legendFormat": "cmpt756s1",
               "refId": "C"
             },
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "exemplar": true,
               "expr": "histogram_quantile(0.5, sum by (le) (rate(flask_http_request_duration_seconds_bucket{service=\"cmpt756s2\",status=\"200\"}[1m])))",
               "interval": "",
               "legendFormat": "cmpt756s2",
               "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "$datasource"
+              },
+              "exemplar": true,
+              "expr": "histogram_quantile(0.5, sum by (le) (rate(flask_http_request_duration_seconds_bucket{service=\"cmpt756s3\",status=\"200\"}[1m])))",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "cmpt756s3",
+              "refId": "D"
             }
           ],
           "thresholds": [],
-          "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "title": "Median response time [1m]",
           "tooltip": {
             "shared": true,
@@ -745,9 +707,7 @@ data:
           },
           "type": "graph",
           "xaxis": {
-            "buckets": null,
             "mode": "time",
-            "name": null,
             "show": true,
             "values": []
           },
@@ -755,25 +715,18 @@ data:
             {
               "$$hashKey": "object:1130",
               "format": "s",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             },
             {
               "$$hashKey": "object:1131",
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false,
-            "alignLevel": null
+            "align": false
           }
         },
         {
@@ -781,12 +734,8 @@ data:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "$datasource",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
+          "datasource": {
+            "uid": "$datasource"
           },
           "fill": 1,
           "fillGradient": 0,
@@ -815,7 +764,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.2.1",
+          "pluginVersion": "8.4.2",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -834,9 +783,7 @@ data:
             }
           ],
           "thresholds": [],
-          "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "title": "process open fds",
           "tooltip": {
             "shared": true,
@@ -845,9 +792,7 @@ data:
           },
           "type": "graph",
           "xaxis": {
-            "buckets": null,
             "mode": "time",
-            "name": null,
             "show": true,
             "values": []
           },
@@ -855,25 +800,18 @@ data:
             {
               "$$hashKey": "object:80",
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             },
             {
               "$$hashKey": "object:81",
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false,
-            "alignLevel": null
+            "align": false
           }
         },
         {
@@ -881,12 +819,8 @@ data:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "$datasource",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
+          "datasource": {
+            "uid": "$datasource"
           },
           "fill": 0,
           "fillGradient": 0,
@@ -919,7 +853,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.2.1",
+          "pluginVersion": "8.4.2",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -939,9 +873,7 @@ data:
             }
           ],
           "thresholds": [],
-          "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "title": "Requests under 100 ms [5m]",
           "tooltip": {
             "shared": true,
@@ -950,9 +882,7 @@ data:
           },
           "type": "graph",
           "xaxis": {
-            "buckets": null,
             "mode": "time",
-            "name": null,
             "show": true,
             "values": []
           },
@@ -961,7 +891,6 @@ data:
               "$$hashKey": "object:1286",
               "decimals": 1,
               "format": "percentunit",
-              "label": null,
               "logBase": 1,
               "max": "1",
               "min": "0",
@@ -970,16 +899,12 @@ data:
             {
               "$$hashKey": "object:1287",
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false,
-            "alignLevel": null
+            "align": false
           }
         },
         {
@@ -987,12 +912,9 @@ data:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "$datasource",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
+          "datasource": {
+            "type": "prometheus",
+            "uid": "$datasource"
           },
           "fill": 0,
           "fillGradient": 0,
@@ -1025,7 +947,7 @@ data:
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.2.1",
+          "pluginVersion": "8.4.2",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1035,6 +957,10 @@ data:
           "steppedLine": false,
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
               "expr": "histogram_quantile(0.9, sum by (le) (rate(flask_http_request_duration_seconds_bucket{service=\"cmpt756db\",status=\"200\"}[1m])))",
               "format": "time_series",
               "interval": "",
@@ -1043,22 +969,41 @@ data:
               "refId": "A"
             },
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
               "expr": "histogram_quantile(0.9, sum by (le) (rate(flask_http_request_duration_seconds_bucket{service=\"cmpt756s1\",status=\"200\"}[1m])))",
               "interval": "",
               "legendFormat": "cmpt756s1",
               "refId": "B"
             },
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "exemplar": true,
               "expr": "histogram_quantile(0.9, sum by (le) (rate(flask_http_request_duration_seconds_bucket{service=\"cmpt756s2\",status=\"200\"}[1m])))",
               "interval": "",
               "legendFormat": "cmpt756s2",
               "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "$datasource"
+              },
+              "exemplar": true,
+              "expr": "histogram_quantile(0.9, sum by (le) (rate(flask_http_request_duration_seconds_bucket{service=\"cmpt756s3\",status=\"200\"}[1m])))",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "cmpt756s3",
+              "refId": "D"
             }
           ],
           "thresholds": [],
-          "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "title": "90th %ile response time [1m]",
           "tooltip": {
             "shared": true,
@@ -1067,9 +1012,7 @@ data:
           },
           "type": "graph",
           "xaxis": {
-            "buckets": null,
             "mode": "time",
-            "name": null,
             "show": true,
             "values": []
           },
@@ -1077,33 +1020,27 @@ data:
             {
               "$$hashKey": "object:1441",
               "format": "s",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             },
             {
               "$$hashKey": "object:1442",
               "format": "short",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false,
-            "alignLevel": null
+            "align": false
           }
         }
       ],
       "refresh": "5s",
-      "schemaVersion": 26,
+      "schemaVersion": 35,
       "style": "dark",
       "tags": [
-        "flask", "c756"
+        "flask",
+        "c756"
       ],
       "templating": {
         "list": [
@@ -1115,7 +1052,6 @@ data:
             },
             "hide": 0,
             "includeAll": false,
-            "label": null,
             "multi": false,
             "name": "datasource",
             "options": [],
@@ -1155,5 +1091,6 @@ data:
       "timezone": "",
       "title": "c756 transactions",
       "uid": "u_DVKhQiz",
-      "version": 9
+      "version": 1,
+      "weekStart": ""
     }

@@ -20,14 +20,17 @@ docker:
 	make -f k8s.mak cri
 
 
-monitor:
+kiali:
 	# Executing Kiali
 	make -f k8s.mak kiali
 
-monitoring-tools-url:
-	make -f k8s.mak grafana-url
-	echo "User: admin Password: prom-operator"
-	make -f k8s.mak kiali-url
+monitoring-url:
+	echo "Grafana url:"
+	@make -f k8s.mak grafana-url
+	@echo "User: admin Password: prom-operator"
+	@echo ""
+	@echo "Kiali url:"
+	@make -f k8s.mak kiali-url
 
 url:
 	# Fetching the required external IP address

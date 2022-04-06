@@ -21,7 +21,7 @@ import requests
 import simplejson as json
 
 # Local modules
-import unique_code
+# import unique_code
 
 # The unique exercise code
 # The EXER environment variable has a value specific to this exercise
@@ -123,14 +123,14 @@ def delete_song(music_id):
         headers={'Authorization': headers['Authorization']})
     return (response.json())
 
-
-@bp.route('/test', methods=['GET'])
-def test():
-    # This value is for user scp756-221
-    if ('4020f691a6c618a3bc134a6383337beefe4acde96ca09e0d1e1e55e8c' !=
-            ucode):
-        raise Exception("Test failed")
-    return {}
+## This part is not required for the project
+# @bp.route('/test', methods=['GET'])
+# def test():
+#     # This value is for user scp756-221
+#     if ('4020f691a6c618a3bc134a6383337beefe4acde96ca09e0d1e1e55e8c' !=
+#             ucode):
+#         raise Exception("Test failed")
+#     return {}
 
 
 # All database calls will have this prefix.  Prometheus metric

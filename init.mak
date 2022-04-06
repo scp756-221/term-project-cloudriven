@@ -11,7 +11,8 @@ init:
 
 	# Provisioning the Kubernetes
 	make -f k8s.mak provision
-	
+
+monitor:
 	# Executing Kiali
 	make -f k8s.mak kiali
 

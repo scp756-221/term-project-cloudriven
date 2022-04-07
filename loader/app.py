@@ -66,6 +66,7 @@ def create_song(artist, title, uuid):
               "uuid": uuid})
     return (response.json())
 
+
 def create_playlist(playlistname, songs, uuid):
     """
     Create a playlist.
@@ -73,7 +74,7 @@ def create_playlist(playlistname, songs, uuid):
     the old UUID is replaced with this one.
     """
     url = db['name'] + '/load'
-    response = request.post(
+    response = requests.post(
         url,
         auth=build_auth(),
         json={"objtype": "playlist",
@@ -81,6 +82,7 @@ def create_playlist(playlistname, songs, uuid):
               "Songs": songs,
               "uuid": uuid})
     return (response.json())
+
 
 def check_resp(resp, key):
     if 'http_status_code' in resp:

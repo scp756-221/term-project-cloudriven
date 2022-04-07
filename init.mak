@@ -1,12 +1,9 @@
 .DEFAULT_GOAL := init
 
-init: templates cluster url
-
-templates:
+init: 
 	# Initalizing the template files
 	make -f k8s.mak templates
 
-cluter:
 	# Creating the cluster
 	make -f eks.mak start
 

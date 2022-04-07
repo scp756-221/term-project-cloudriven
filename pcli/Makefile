@@ -8,5 +8,5 @@ PORT=30003
 build-pcli:
 	docker image build -f Dockerfile -t pcli:$(VER) .
 
-run-mcli:
+run-pcli:
 	docker container run -it --rm --name pcli pcli:$(VER) python3 pcli.py $(SERVER) $(PORT)

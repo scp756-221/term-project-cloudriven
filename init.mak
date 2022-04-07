@@ -22,6 +22,10 @@ docker:
 	# Building the docker images after making any updates
 	make -f k8s.mak cri
 
+rollout: 
+	# Rollout new deployments of all microservices
+	make -f k8s.mak rollout
+
 monitor:
 	# Executing Kiali
 	make -f k8s.mak kiali

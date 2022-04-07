@@ -81,7 +81,6 @@ def create_playlist(playlistname, songs, uuid):
               "Songs": songs,
               "uuid": uuid})
     return (response.json())
-    )
 
 def check_resp(resp, key):
     if 'http_status_code' in resp:
@@ -128,8 +127,10 @@ if __name__ == '__main__':
         rdr = csv.reader(inp)
         next(rdr)  # Skip header
         for playlistname, songs, uuid in rdr:
+            # Converting string to list
+            song = songs.strip('][').split(",")
             resp = create_playlist(playlistname.strip(),
-                                   songs.strip(),
+                                   song,
                                    uuid.strip())
             resp = check_resp(resp, 'playlist_id')
             if resp is None or resp != uuid:

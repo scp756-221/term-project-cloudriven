@@ -27,6 +27,7 @@ docker:
 rollout: 
 	# Rollout new deployments of all microservices
 	make -f k8s.mak rollout
+	make -f api.mak ls
 
 monitor:
 	# Executing Kiali

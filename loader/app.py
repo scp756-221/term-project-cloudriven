@@ -67,14 +67,14 @@ def create_song(artist, title, uuid):
     return (response.json())
 
 
-def create_playlist(playlistname, songs, uuid):
+def create_playlist(Playlistame, songs, uuid):
     """
     Create a playlist.
     If a record already exists,
     the old UUID is replaced with this one.
     """
     url = db['name'] + '/load'
-    response = request.post(
+    response = requests.post(
         url,
         auth=build_auth(),
         json={"objtype": "playlist",

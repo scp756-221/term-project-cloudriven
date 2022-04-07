@@ -66,6 +66,7 @@ def create_song(artist, title, uuid):
               "uuid": uuid})
     return (response.json())
 
+
 def create_playlist(playlistname, songs, uuid):
     """
     Create a playlist.
@@ -81,7 +82,7 @@ def create_playlist(playlistname, songs, uuid):
               "Songs": songs,
               "uuid": uuid})
     return (response.json())
-    )
+
 
 def check_resp(resp, key):
     if 'http_status_code' in resp:

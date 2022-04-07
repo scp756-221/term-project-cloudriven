@@ -1,5 +1,6 @@
 .DEFAULT_GOAL := init
 
+
 init:
 	# Creating the cluster
 	make -f eks.mak start
@@ -23,7 +24,7 @@ docker:
 	make -f k8s.mak cri
 
 rollout: 
-	# Rollout new deployments of all microservices
+	# Rolling out new deployments of all microservices
 	make -f k8s.mak rollout
 
 monitor:

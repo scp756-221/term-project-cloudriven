@@ -70,7 +70,7 @@ class Mcli(cmd.Cmd):
         cmd.Cmd.__init__(self)
         self.prompt = 'mql: '
         self.intro = """
-Command-line interface to music service.
+Command-line interface to music and playlist service.
 Enter 'help' for command list.
 'Tab' character autocompletes commands.
 """

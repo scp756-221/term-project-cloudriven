@@ -67,7 +67,7 @@ def create_song(artist, title, uuid):
     return (response.json())
 
 
-def create_playlist(Playlistame, songs, uuid):
+def create_playlist(playlistname, songs, uuid):
     """
     Create a playlist.
     If a record already exists,

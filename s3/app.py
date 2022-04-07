@@ -37,7 +37,7 @@ db = {
         "read",
         "write",
         "delete",
-        "update"
+        "edit"
     ]
 }
 
@@ -123,7 +123,7 @@ def delete_playlist(playlist_id):
 
 
 @bp.route('/<playlist_id>', methods=['PUT'])
-def edit_playlist_name(playlist_id):
+def edit_name(playlist_id):
     headers = request.headers
     # check header here
     if 'Authorization' not in headers:
@@ -182,7 +182,7 @@ def add_song(playlist_id):
 
 
 @bp.route('/delete_song/<playlist_id>', methods=['PUT'])
-def delete_song(playlist_id):
+def remove_song(playlist_id):
     headers = request.headers
     # check header here
     if 'Authorization' not in headers:

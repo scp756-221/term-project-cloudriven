@@ -66,8 +66,11 @@ def list_all_playlists():
     # list all playlists here
     payload = {"objtype": "playlist"}
     url = db['name'] + '/' + db['endpoint'][4]
-    response = requests.get(url, params=payload).json()['Items']
-    return ({'playlists' : response})
+    response = requests.get(
+        url, 
+        params=payload,
+        headers={'Authorization': headers['Authorization']})
+    return (response.json())
 
 
 @bp.route('/<playlist_id>', methods=['GET'])

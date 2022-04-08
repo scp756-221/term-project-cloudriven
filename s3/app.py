@@ -37,10 +37,10 @@ db = {
         "read",
         "write",
         "delete",
-        "update"
+        "update",
+        "read_all"
     ]
 }
-
 
 @bp.route('/health')
 @metrics.do_not_track()
@@ -55,7 +55,7 @@ def readiness():
 
 
 # Modify & Add more functions here
-@bp.route('/', methods=['GET'])
+@bp.route('/all', methods=['GET'])
 def list_all_playlists():
     headers = request.headers
     # check header here
@@ -64,7 +64,10 @@ def list_all_playlists():
                         status=401,
                         mimetype='application/json')
     # list all playlists here
-    return {}
+    payload = {"objtype": "playlist"}
+    url = db['name'] + '/' + db['endpoint'][4]
+    response = requests.get(url, params=payload).json()['Items']
+    return ({'playlists' : response})
 
 
 @bp.route('/<playlist_id>', methods=['GET'])
@@ -94,36 +97,20 @@ def create_playlist():
                         mimetype='application/json')
     try:
         content = request.get_json()
-        PlaylistName = content['PlaylistName']
-        Songs = content['Songs']
+        playlistname = content['PlaylistName']
+        songs = content['Songs']
     except Exception:
         return json.dumps({"message": "error reading arguments"})
     url = db['name'] + '/' + db['endpoint'][1]
     response = requests.post(
         url,
-        json={"objtype": "playlist", "PlaylistName": PlaylistName, "Songs": Songs},
+        json={"objtype": "playlist", "PlaylistName": playlistname, "Songs": songs},
         headers={'Authorization': headers['Authorization']})
     return (response.json())
 
 
-@bp.route('/<playlist_id>', methods=['DELETE'])
-def delete_playlist(playlist_id):
-    headers = request.headers
-    # check header here
-    if 'Authorization' not in headers:
-        return Response(json.dumps({"error": "missing auth"}),
-                        status=401,
-                        mimetype='application/json')
-    url = db['name'] + '/' + db['endpoint'][2]
-    response = requests.delete(
-        url,
-        params={"objtype": "playlist", "objkey": playlist_id},
-        headers={'Authorization': headers['Authorization']})
-    return (response.json())
-
-
-@bp.route('/<playlist_id>', methods=['PUT'])
-def edit_playlist_name(playlist_id):
+@bp.route('/edit', methods=['PUT'])
+def edit_playlist_name():
     headers = request.headers
     # check header here
     if 'Authorization' not in headers:
@@ -132,7 +119,7 @@ def edit_playlist_name(playlist_id):
                         mimetype='application/json')
     try:
         content = request.get_json()
-        PlaylistName = content['PlaylistName']
+        playlistname = content['PlaylistName']
     except Exception:
         return json.dumps({"message": "error reading arguments"})
     payload = {"objtype": "playlist", "objkey": playlist_id}
@@ -140,7 +127,7 @@ def edit_playlist_name(playlist_id):
     response = requests.put(
         url,
         params=payload,
-        json={"objtype": "playlist", "PlaylistName": PlaylistName},
+        json={"objtype": "playlist", "PlaylistName": playlistname},
         headers={'Authorization': headers['Authorization']})
     return (response.json())
 
@@ -211,6 +198,7 @@ def delete_song(playlist_id):
         headers={'Authorization': headers['Authorization']})
     return (response.json())
 
+    
 
 # All database calls will have this prefix.  Prometheus metric
 # calls will not---they will have route '/metrics'.  This is

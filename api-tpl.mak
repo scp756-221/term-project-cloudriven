@@ -28,7 +28,8 @@ PODCONT=service1
 # show deploy and pods in current ns; svc of cmpt756 ns
 ls: showcontext
 	$(KC) get gw,deployments,pods
-	$(KC) -n $(NS) get svc
+	$(KC) $(NS) get svc
+
 
 logs:
 	$(KC) logs $(PODS1) -c $(PODCONT)

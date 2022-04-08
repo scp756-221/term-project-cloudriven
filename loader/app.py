@@ -73,7 +73,7 @@ def create_playlist(playlistname, songs, uuid):
     the old UUID is replaced with this one.
     """
     url = db['name'] + '/load'
-    response = request.post(
+    response = requests.post(
         url,
         auth=build_auth(),
         json={"objtype": "playlist",
@@ -81,6 +81,7 @@ def create_playlist(playlistname, songs, uuid):
               "Songs": songs,
               "uuid": uuid})
     return (response.json())
+
 
 def check_resp(resp, key):
     if 'http_status_code' in resp:
@@ -123,7 +124,7 @@ if __name__ == '__main__':
                                                              title,
                                                              uuid))
 
-    with open('{}/music/playlist.csv'.format(resource_dir), 'r') as inp:
+    with open ('{}/playlist/playlist.csv'.format(resource_dir), 'r') as inp:
         rdr = csv.reader(inp)
         next(rdr)  # Skip header
         for playlistname, songs, uuid in rdr:
@@ -135,5 +136,5 @@ if __name__ == '__main__':
             resp = check_resp(resp, 'playlist_id')
             if resp is None or resp != uuid:
                 print('Error creating playlist {} {}, {}'.format(playlistname,
-                                                                 songs,
-                                                                 uuid))
+                                                             songs,
+                                                             uuid))

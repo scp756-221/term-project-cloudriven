@@ -7,12 +7,12 @@ init:
 	# Creating the cluster
 	make -f eks.mak start
 
+	# Setting context to latest EKS cluster
+	# make -f eks.mak cd
+
 	# Creating namespace and set it as the defualt
 	kubectl create ns c756ns
 	kubectl config set-context --current --namespace=c756ns
-
-	# Setting context to latest EKS cluster
-	# make -f eks.mak cd
 
 	# Provisioning the Kubernetes
 	make -f k8s.mak provision

@@ -25,8 +25,9 @@ docker:
 	make -f k8s.mak cri
 
 rollout: 
-	# Rollout new deployments of all microservices
+	# Rollouting new deployments of all microservices
 	make -f k8s.mak rollout
+	# Showing deploy and pods in current ns; svc of cmpt756 ns
 	make -f api.mak ls
 
 kiali:
@@ -44,9 +45,6 @@ monitoring-url:
 url:
 	# Fetching the required external IP address
 	kubectl -n istio-system get service istio-ingressgateway | cut -c -140
-
-	# Fetching the urls for monitoring services
-	make -f k8s.mak kiali-url
 
 stop:
 	# Cleaning up the DB tables

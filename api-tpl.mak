@@ -30,6 +30,7 @@ ls: showcontext
 	$(KC) get gw,deployments,pods
 	$(KC) $(NS) get svc
 
+
 logs:
 	$(KC) logs $(PODS1) -c $(PODCONT)
 

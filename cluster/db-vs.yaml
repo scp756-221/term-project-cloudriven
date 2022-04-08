@@ -14,11 +14,11 @@ spec:
         prefix: /api/v1/datastore
     rewrite:
       uri: /api/v1/datastore
-    # fault:
-    #   abort:
-    #     percentage:
-    #       value: 100.0
-    #     httpStatus: 500
+#    fault:
+#      abort:
+#        percentage:
+#          value: 0.0
+#        httpStatus: 500
     route:
     - destination:
         host: cmpt756db

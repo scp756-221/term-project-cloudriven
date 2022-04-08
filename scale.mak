@@ -17,6 +17,7 @@ help:
 	@echo "	db                => Example: make -f scale.mak db c_r=1 r=2"
 	@echo "	s1                => Example: make -f scale.mak s1 c_r=1 r=2"
 	@echo "	s2                => Example: make -f scale.mak s2 c_r=1 r=2"
+	@echo "	s3                => Example: make -f scale.mak s3 c_r=1 r=2"
 	@echo ""
 	@echo "DynamoDB autimation functions:"
 	@echo "	db-create-tables  		=> Example: make -f scale.mak db-create-tables"
@@ -127,6 +128,21 @@ check-s2-replicas-parameters:
 s2:check-s2-replicas-parameters
 	kubectl scale --current-replicas=$(c_r) --replicas=$(r) deployment/cmpt756s2-v1
 
+
+# set the number of replica for s3 microservice
+check-s3-replicas-parameters:
+	
+	@if test "$(c_r)" = "" ; then \
+		echo "c_r not set"; \
+		@echo "Example: make -f scale.mak s3 c_r=1 r=2";\
+		@exit 1;\
+	fi
+	@if test "$(r)" = "" ; then \
+		echo "r not set"; \
+		@echo "Example: make -f scale.mak s3 c_r=1 r=2";\
+		@exit 1;\
+s3:check-s3-replicas-parameters
+	kubectl scale --current-replicas=$(c_r) --replicas=$(r) deployment/cmpt756s3
 
 
 ####################################################################################################################

@@ -1,12 +1,11 @@
-# Makefile for  Music service (S2) and Playlist service (S3)
+# Makefile for standalone Music service (S2)
 
-VER=v1.0
+VER=v0.8
 
-# SERVER=`docker inspect s2 --format '{{.NetworkSettings.IPAddress}}'`
-# PORT=30001
 
-SERVER=`docker inspect s3 --format '{{.NetworkSettings.IPAddress}}'`
-PORT=30003
+SERVER=`docker inspect s2 --format '{{.NetworkSettings.IPAddress}}'`
+PORT=30001
+
 
 build-mcli:
 	docker image build -f Dockerfile -t mcli:$(VER) .

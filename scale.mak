@@ -10,8 +10,8 @@ KVER=1.21
 help:
 	@echo ""
 	@echo "ESK worker nodes automation functions:"
-	@echo "	add-newType-nodes => Example: make -f scale.mak node-type=t3.large nodes=2 nodes-min=4 nodes-max=6"
-	@echo "	add-nodes         => Example: make -f scale.mak add-nodes nodes=2 nodes-min=4 nodes-max=6"
+	@echo "	add-newType-nodes => Example: make -f scale.mak add-newType-nodes node-type=t3.large nodes=2 nodes-min=2 nodes-max=6"
+	@echo "	add-nodes         => Example: make -f scale.mak add-nodes nodes=2 nodes-min=2 nodes-max=6"
 	@echo ""
 	@echo "k8s automation functions:"
 	@echo "	db                => Example: make -f scale.mak db c_r=1 r=2"

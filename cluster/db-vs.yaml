@@ -24,8 +24,3 @@ spec:
         host: cmpt756db
         port:
           number: 30002
-#    fault:
-#       delay:
-#        fixedDelay: 5000ms
-#        percentage:
-#          value: 0

@@ -36,7 +36,7 @@ spec:
           readOnly: true
         - name: playlist
           mountPath: "/data/playlist"
-          readOnly: true          
+          readOnly: true
       volumes:
       - name: music
         configMap:

@@ -62,6 +62,11 @@ BODY_MUSIC= { \
   "SongTitle": "Rio" \
 }
 
+BODY_PLAYLIST= { \
+  "PlaylistName": "Favorite", \
+  "Songs": [423a10a6-ab66-48c5-a1c7-dffb3169d744,6ecfafd0-8a35-4af6-a9e2-cbd79b3abanw] \
+}
+
 # this is a token for ???
 TOKEN=Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMDI3Yzk5ZWYtM2UxMi00ZmM5LWFhYzgtMTcyZjg3N2MyZDI0IiwidGltZSI6MTYwMTA3NDY0NC44MTIxNjg2fQ.hR5Gbw5t2VMpLcj8yDz1B6tcWsWCFNiHB_KHpvQVNls
 BODY_TOKEN={ \
@@ -71,6 +76,7 @@ BODY_TOKEN={ \
 # keep these ones around
 USER_ID=0d2a2931-8be6-48fc-aa9e-5a0f9f536bd3
 MUSIC_ID=2995bc8b-d872-4dd1-b396-93fde2f4bfff
+PLAYLIST_ID=bngdafd0-8a35-4af6-a9e2-cbd79b3auytf
 
 # it's convenient to have a second set of id to test deletion (DELETE uses these id with the suffix of 2)
 USER_ID2=9175a76f-7c4d-4a3e-be57-65856c6bb77e
@@ -104,6 +110,24 @@ duser:
 dmusic:
 	echo curl --location --request DELETE 'http://$(IGW)/api/v1/music/$(MUSIC_ID2)' --header '$(TOKEN)' > $(LOG_DIR)/dmusic.out
 	$(CURL) --location --request DELETE 'http://$(IGW)/api/v1/music/$(MUSIC_ID2)' --header '$(TOKEN)' | tee -a $(LOG_DIR)/dmusic.out
+
+
+rplaylist_all:
+	echo curl --location --request GET 'http://$(IGW)/api/v1/playlist/' --header '$(TOKEN)' > $(LOG_DIR)/rplaylist_all.out
+	$(CURL) --location --request GET 'http://$(IGW)/api/v1/playlist/' --header '$(TOKEN)' | tee -a $(LOG_DIR)/rplaylist_all.out
+
+rplaylist:
+	echo curl --location --request GET 'http://$(IGW)/api/v1/playlist/$(PLAYLIST_ID)' --header '$(TOKEN)' > $(LOG_DIR)/rplaylist.out
+	$(CURL) --location --request GET 'http://$(IGW)/api/v1/playlist/$(PLAYLIST_ID)' --header '$(TOKEN)' | tee -a $(LOG_DIR)/rplaylist.out
+
+dplaylist:
+	echo curl --location --request DELETE 'http://$(IGW)/api/v1/playlist/$(PLAYLIST_ID)' --header '$(TOKEN)' > $(LOG_DIR)/dplaylist.out
+	$(CURL) --location --request DELETE 'http://$(IGW)/api/v1/playlist/$(PLAYLIST_ID)' --header '$(TOKEN)' | tee -a $(LOG_DIR)/dplaylist.out
+
+cplaylist:
+	echo curl --location --request POST 'http://$(IGW)/api/v1/playlist/' --header '$(TOKEN)' --header 'Content-Type: application/json' --data-raw '$(BODY_PLAYLIST)' > $(LOG_DIR)/cplaylist.out
+	$(CURL) --location --request POST 'http://$(IGW)/api/v1/playlist/' --header '$(TOKEN)' --header 'Content-Type: application/json' --data-raw '$(BODY_PLAYLIST)' | tee -a $(LOG_DIR)/cplaylist.out
+
 
 # PUT is used for login/logoff too
 apilogin:

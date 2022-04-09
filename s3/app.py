@@ -64,7 +64,7 @@ def hello_world():
 
 
 # Modify & Add more functions here
-@bp.route('/all', methods=['GET'])
+@bp.route('/', methods=['GET'])
 def list_all_playlists():
     headers = request.headers
     # check header here

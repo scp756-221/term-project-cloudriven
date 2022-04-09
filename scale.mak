@@ -53,7 +53,7 @@ check-add-newType-nodes:
 	fi
 
 add-newType-nodes:check-add-newType-nodes
-	eksctl create cluster --name aws756 --version 1.21 --region us-west-2 --nodegroup-name worker-nodes-new --node-type $(node-type) --nodes=$(nodes) --nodes-min=$(nodes-min) --nodes-max=$(nodes-max) --managed | tee logs/eks-start.log
+	eksctl create cluster --name=aws756 --version=1.21 --region=us-west-2 --nodegroup-name=worker-nodes-new --node-type=$(node-type) --nodes=$(nodes) --nodes-min=$(nodes-min) --nodes-max=$(nodes-max) --managed | tee logs/eks-start.log
 
 # set the number of node in the cluster
 check-add-nodes:

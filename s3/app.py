@@ -118,7 +118,7 @@ def create_playlist():
     return (response.json())
 
 
-@bp.route('/edit', methods=['PUT'])
+@bp.route('/edit/<playlist_id>', methods=['PUT'])
 def edit_playlist_name(playlist_id):
     headers = request.headers
     # check header here

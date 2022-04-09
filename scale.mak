@@ -96,6 +96,7 @@ check-db-replicas-parameters:
 		@echo "Example: make -f scale.mak db c_r=1 r=2";\
 		@exit 1;\
 	fi
+
 db:check-db-replicas-parameters
 	kubectl scale --current-replicas=$(c_r) --replicas=$(r) deployment/cmpt756db
 
@@ -112,6 +113,7 @@ check-s1-replicas-parameters:
 		@echo "Example: make -f scale.mak s1 c_r=1 r=2";\
 		@exit 1;\
 	fi
+
 s1:check-s1-replicas-parameters
 	kubectl scale --current-replicas=$(c_r) --replicas=$(r) deployment/cmpt756s1
 
@@ -128,6 +130,7 @@ check-s2-replicas-parameters:
 		@echo "Example: make -f scale.mak s2 c_r=1 r=2";\
 		@exit 1;\
 	fi
+
 s2:check-s2-replicas-parameters
 	kubectl scale --current-replicas=$(c_r) --replicas=$(r) deployment/cmpt756s2-v1
 
@@ -144,6 +147,8 @@ check-s3-replicas-parameters:
 		echo "r not set"; \
 		@echo "Example: make -f scale.mak s3 c_r=1 r=2";\
 		@exit 1;\
+	fi
+
 s3:check-s3-replicas-parameters
 	kubectl scale --current-replicas=$(c_r) --replicas=$(r) deployment/cmpt756s3
 

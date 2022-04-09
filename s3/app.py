@@ -55,12 +55,12 @@ def readiness():
     return Response("", status=200, mimetype="application/json")
 
 
-@bp.route('/', methods=['GET'])
-@metrics.do_not_track()
-def hello_world():
-    return ("If you are reading this in a browser, your service is "
-            "operational. Switch to curl/Postman/etc to interact using the "
-            "other HTTP verbs.")
+# @bp.route('/', methods=['GET'])
+# @metrics.do_not_track()
+# def hello_world():
+#     return ("If you are reading this in a browser, your service is "
+#             "operational. Switch to curl/Postman/etc to interact using the "
+#             "other HTTP verbs.")
 
 
 # Modify & Add more functions here

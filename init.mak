@@ -18,7 +18,7 @@ init:
 	make -f k8s.mak provision
 
 	# Loading the database
-	make -f k8s.mak loader
+	make -f k8s.mak loaders
 
 docker:
 	# Building and pushing the docker images after making any updates
@@ -44,9 +44,6 @@ monitoring-url:
 url:
 	# Fetching the required external IP address
 	kubectl -n istio-system get service istio-ingressgateway | cut -c -140
-
-	# Fetching the urls for monitoring services
-	make -f k8s.mak kiali-url
 
 stop:
 	# Cleaning up the DB tables

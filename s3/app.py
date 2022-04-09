@@ -42,6 +42,7 @@ db = {
     ]
 }
 
+
 @bp.route('/health')
 @metrics.do_not_track()
 def health():
@@ -75,7 +76,7 @@ def list_all_playlists():
     payload = {"objtype": "playlist"}
     url = db['name'] + '/' + db['endpoint'][4]
     response = requests.get(url, params=payload).json()['Items']
-    return ({'playlists' : response})
+    return ({'playlists': response})
 
 
 @bp.route('/<playlist_id>', methods=['GET'])
@@ -118,7 +119,7 @@ def create_playlist():
 
 
 @bp.route('/edit', methods=['PUT'])
-def edit_playlist_name():
+def edit_playlist_name(playlist_id):
     headers = request.headers
     # check header here
     if 'Authorization' not in headers:
@@ -206,7 +207,23 @@ def delete_song(playlist_id):
         headers={'Authorization': headers['Authorization']})
     return (response.json())
 
-    
+
+@bp.route('/<playlist_id>', methods=['DELETE'])
+def delete_playlist(playlist_id):
+    headers = request.headers
+    # check header here
+    if 'Authorization' not in headers:
+        return Response(json.dumps({"error": "missing auth"}),
+                        status=401,
+                        mimetype='application/json')
+    payload = {"objtype": "playlist", "objkey": playlist_id}
+    url = db['name'] + '/' + db['endpoint'][2]
+    response = requests.delete(
+        url,
+        params=payload,
+        headers={'Authorization': headers['Authorization']})
+    return (response.json())
+
 
 # All database calls will have this prefix.  Prometheus metric
 # calls will not---they will have route '/metrics'.  This is

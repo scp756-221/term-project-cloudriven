@@ -115,8 +115,8 @@ def create_playlist():
         content = request.get_json()
         playlistname = content['PlaylistName']
         songs = content['Songs']
-    except Exception:
-        return json.dumps({"message": "error reading arguments"})
+    except Exception as ex:
+        return Response(str(ex), status=400)
     url = db['name'] + '/' + db['endpoint'][1]
     response = requests.post(
         url,

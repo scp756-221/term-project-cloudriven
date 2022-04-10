@@ -54,3 +54,18 @@ stop:
 
 	# Deleting the EKS cluster
 	make -f eks.mak stop
+
+###############################################################################
+################################ Throubleshouting  ############################
+###############################################################################
+
+# with help of this command we can list the all stack on the cloudformation
+list-stack:
+	@aws cloudformation list-stacks 
+
+# all the status are listed in below link:
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html
+
+#list-stack-filter:
+#	@aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE
+

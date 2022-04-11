@@ -91,31 +91,30 @@ def update():
     return response
 
 
-@bp.route('/read', methods=['GET'])
-def read():
+def global_read(request):
     headers = request.headers  # noqa: F841
     # check header here
     objtype = urllib.parse.unquote_plus(request.args.get('objtype'))
-    objkey = urllib.parse.unquote_plus(request.args.get('objkey'))
+    objkey = request.args.get('objkey', None)
+
+    if objkey is not None:
+        objkey = urllib.parse.unquote_plus(objkey)
+
     table_name = objtype.capitalize()+"-ZZ-REG-ID"
     table_id = objtype + "_id"
     table = dynamodb.Table(table_name)
+    return objkey, table_id, table 
+
+@bp.route('/read', methods=['GET'])
+def read():
+    objkey, table_id, table = global_read(request)
     response = table.query(Select='ALL_ATTRIBUTES',
                            KeyConditionExpression=Key(table_id).eq(objkey))
     return response
 
-
 @bp.route('/read_all', methods=['GET'])
 def read_all():
-    headers = req.headers  # noqa: F841
-    # check header here
-    objtype = urllib.parse.unquote_plus(req.args.get('objtype'))
-    objkey = req.args.get('objkey', None)
-    if objkey:
-        objkey = urllib.parse.unquote_plus(objkey)
-    table_name = objtype.capitalize()+"-ZZ-REG-ID"
-    table_id = objtype + "_id"
-    table = dynamodb.Table(table_name)
+    _, _, table = global_read(request)
     response = table.scan(Select='ALL_ATTRIBUTES')
     return response
 

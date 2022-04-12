@@ -113,8 +113,8 @@ dmusic:
 
 
 rplaylist_all:
-	echo curl --location --request GET 'http://$(IGW)/api/v1/playlist/' --header '$(TOKEN)' > $(LOG_DIR)/rplaylist_all.out
-	$(CURL) --location --request GET 'http://$(IGW)/api/v1/playlist/' --header '$(TOKEN)' | tee -a $(LOG_DIR)/rplaylist_all.out
+	echo curl --location --request GET 'http://$(IGW)/api/v1/playlist/all' --header '$(TOKEN)' > $(LOG_DIR)/rplaylist_all.out
+	$(CURL) --location --request GET 'http://$(IGW)/api/v1/playlist/all' --header '$(TOKEN)' | tee -a $(LOG_DIR)/rplaylist_all.out
 
 rplaylist:
 	echo curl --location --request GET 'http://$(IGW)/api/v1/playlist/$(PLAYLIST_ID)' --header '$(TOKEN)' > $(LOG_DIR)/rplaylist.out

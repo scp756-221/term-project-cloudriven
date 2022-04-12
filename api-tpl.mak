@@ -64,7 +64,7 @@ BODY_MUSIC= { \
 
 BODY_PLAYLIST= { \
   "PlaylistName": "Favorite", \
-  "Songs": [423a10a6-ab66-48c5-a1c7-dffb3169d744,6ecfafd0-8a35-4af6-a9e2-cbd79b3abanw] \
+  "Songs": "423a10a6-ab66-48c5-a1c7-dffb3169d744" \
 }
 
 # this is a token for ???

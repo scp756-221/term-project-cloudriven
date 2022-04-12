@@ -18,7 +18,7 @@ init:
 	make -f k8s.mak provision
 
 	# Loading the database
-	make -f k8s.mak loaders
+	make -f k8s.mak loader
 
 docker:
 	# Building and pushing the docker images after making any updates

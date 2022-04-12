@@ -10,7 +10,8 @@ KVER=1.21
 help:
 	@echo ""
 	@echo "ESK worker nodes automation functions:"
-	@echo "	add-newType-nodes => Example: make -f scale.mak add-newType-nodes node-type=t3.large nodes=2 nodes-min=2 nodes-max=6"
+	@echo "	add-newType-nodes => Example: make -f add-newType-nodes nodegroup-name=testNamgeGroup node-type=t3.large nodes=2 nodes-min=2 nodes-max=6"
+	@echo " delete            => Example: make -f delete-nodegroup nodegroup-name=test001"
 	@echo "	add-nodes         => Example: make -f scale.mak add-nodes nodes=2 nodes-min=2 nodes-max=6"
 	@echo ""
 	@echo "k8s automation functions:"
@@ -33,27 +34,37 @@ help:
 check-add-newType-nodes:
 	@if test "$(node-type)" = "" ; then \
 		echo "node-type not set"; \
-		@echo "Example: make -f scale.mak add-newType-nodes node-type=t3.large nodes=2 nodes-min=4 nodes-max=6";\
 		@exit 1;\
 	fi
 	@if test "$(nodes)" = "" ; then \
 		echo "nodes not set"; \
-		@echo "Example: make -f scale.mak add-newType-nodes node-type=t3.large nodes=2 nodes-min=4 nodes-max=6";\
 		@exit 1;\
 	fi
 	@if test "$(nodes-min)" = "" ; then \
 		echo "nodes-min not set"; \
-		@echo "Example: make -f scale.mak add-newType-nodes node-type=t3.large nodes=2 nodes-min=4 nodes-max=6";\
 		@exit 1;\
 	fi
 	@if test "$(nodes-max)" = "" ; then \
 		echo "nodes-max not set"; \
-		@echo "Example: make -f scale.mak add-newType-nodes node-type=t3.large nodes=2 nodes-min=4 nodes-max=6";\
+		@exit 1;\
+	fi
+	@if test "$(nodegroup-name)" = "" ; then \
+		echo "nodegroup-name not set"; \
 		@exit 1;\
 	fi
 
 add-newType-nodes:check-add-newType-nodes
-	eksctl create cluster --name aws756 --version 1.21 --region us-west-2 --nodegroup-name worker-nodes-new --node-type $(node-type) --nodes=$(nodes) --nodes-min=$(nodes-min) --nodes-max=$(nodes-max) --managed | tee logs/eks-start.log
+	eksctl create nodegroup --cluster=aws756 --name=$(nodegroup-name) --region us-west-2 --node-type $(node-type) --nodes=$(nodes) --nodes-min=$(nodes-min) --nodes-max=$(nodes-max) --managed | tee logs/eks-start.log
+
+#test:
+#	@eksctl create nodegroup --cluster=aws756 --name=test001 --region us-west-2 --node-type t3.large --nodes=1 --nodes-min=1 --nodes-max=3 --managed | tee logs/eks-start.log
+check-delete-nodegroup:
+	@if test "$(nodegroup-name)" = "" ; then \
+		echo "nodegroup-name not set"; \
+		@exit 1;\
+	fi
+delete-nodegroup:check-delete-nodegroup
+	@aws eks delete-nodegroup --nodegroup-name $(nodegroup-name) --cluster-name aws756
 
 # set the number of node in the cluster
 check-add-nodes:

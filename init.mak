@@ -25,7 +25,7 @@ docker:
 	make -f k8s.mak cri
 
 rollout: 
-	# Rollout new deployments of all microservices
+	# Rolling out new deployments of all microservices
 	make -f k8s.mak rollout
 	make -f api.mak ls
 
@@ -56,12 +56,12 @@ stop:
 	make -f eks.mak stop
 
 ###############################################################################
-################################ Throubleshouting  ############################
+################################  Troubleshooting  ############################
 ###############################################################################
 
 # with help of this command we can list the all stack on the cloudformation
 list-stack:
-	@aws cloudformation list-stacks 
+	@aws cloudformation list-stacks
 
 # all the status are listed in below link:
 # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html

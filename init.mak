@@ -69,3 +69,13 @@ list-stack:
 #list-stack-filter:
 #	@aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE
 
+#deleting the stack manually
+check-delete-stack:
+	
+	@if test "$(stack-name)" = "" ; then \
+		echo "stack-name not set"; \
+		@exit 1;\
+	fi
+delete-stack:check-delete-stack
+	@aws cloudformation delete-stack --stack-name $(stack-name)
+

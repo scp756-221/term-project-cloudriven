@@ -55,16 +55,16 @@ def readiness():
     return Response("", status=200, mimetype="application/json")
 
 
-# @bp.route('/', methods=['GET'])
-# @metrics.do_not_track()
-# def hello_world():
-#     return ("If you are reading this in a browser, your service is "
-#             "operational. Switch to curl/Postman/etc to interact using the "
-#             "other HTTP verbs.")
+@bp.route('/', methods=['GET'])
+@metrics.do_not_track()
+def hello_world():
+    return ("If you are reading this in a browser, your service is "
+            "operational. Switch to curl/Postman/etc to interact using the "
+            "other HTTP verbs.")
 
 
 # Modify & Add more functions here
-@bp.route('/', methods=['GET'])
+@bp.route('/all', methods=['GET'])
 def list_all_playlists():
     headers = request.headers
     # check header here
@@ -75,8 +75,15 @@ def list_all_playlists():
     # list all playlists here
     payload = {"objtype": "playlist"}
     url = db['name'] + '/' + db['endpoint'][4]
-    response = requests.get(url, params=payload).json()['Items']
-    return ({'playlists': response})
+    try:
+        response = requests.get(
+            url, 
+            params=payload,
+            headers={'Authorization': headers['Authorization']}).json()['Items']
+    except Exception as ex:
+        return Response(str(ex), status=400)
+    playlists = list(response)
+    return ({'playlists' : playlists})
 
 
 @bp.route('/<playlist_id>', methods=['GET'])
@@ -108,8 +115,8 @@ def create_playlist():
         content = request.get_json()
         playlistname = content['PlaylistName']
         songs = content['Songs']
-    except Exception:
-        return json.dumps({"message": "error reading arguments"})
+    except Exception as ex:
+        return Response(str(ex), status=400)
     url = db['name'] + '/' + db['endpoint'][1]
     response = requests.post(
         url,

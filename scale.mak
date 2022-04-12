@@ -11,7 +11,7 @@ help:
 	@echo ""
 	@echo "ESK worker nodes automation functions:"
 	@echo "	add-newType-nodes => Example: make -f add-newType-nodes nodegroup-name=testNamgeGroup node-type=t3.large nodes=2 nodes-min=2 nodes-max=6"
-	@exco " delete            => Example: make -f delete-nodegroup nodegroup-name=test001"
+	@echo " delete            => Example: make -f delete-nodegroup nodegroup-name=test001"
 	@echo "	add-nodes         => Example: make -f scale.mak add-nodes nodes=2 nodes-min=2 nodes-max=6"
 	@echo ""
 	@echo "k8s automation functions:"
